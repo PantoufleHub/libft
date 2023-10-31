@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:17:31 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/28 16:19:07 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/31 17:14:04 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,21 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ss;
+	size_t	index;
 
-	if (!s)
-		return (0);
-	if (ft_strlen(s) < start)
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start + 1;
+	if (start >= ft_strlen(s))
 		len = 0;
-	if (ft_strlen(s + start) < len)
-		len = ft_strlen(s + start);
-	ss = malloc(sizeof(char) * (len + 1));
+	ss = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ss)
-		return (0);
-	ft_strlcpy(ss, s + start, len + 1);
+		return (NULL);
+	index = 0;
+	while (s[start + index] != '\0' && index < len)
+	{
+		ss[index] = s[start + index];
+		index++;
+	}
+	ss[index] = '\0';
 	return (ss);
 }
