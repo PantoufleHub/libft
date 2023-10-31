@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:42:39 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:21:24 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/31 14:46:34 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (s == NULL && fd == 1)
-		return ;
-	return ;
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }
