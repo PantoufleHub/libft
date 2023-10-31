@@ -6,7 +6,7 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:22:43 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/24 16:12:20 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/26 17:56:49 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	ptr = malloc(count * size);
+	ptr = (void *)malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, count);
+	else
+		ft_bzero(ptr, count * size);
 	return (ptr);
 }

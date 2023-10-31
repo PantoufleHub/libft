@@ -6,13 +6,13 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:42:47 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/24 15:28:00 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/25 16:46:30 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	isalnum(int c)
+int	ft_isalnum(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);

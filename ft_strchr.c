@@ -6,21 +6,21 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:42:30 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/24 15:31:42 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/26 15:54:19 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	while (*s != '\0')
 	{
-		if (*s == c)
-			return (s);
+		if (*s == (char)c)
+			return ((char *)s);
 		s++;
 	}
-	if (c == '\0')
-		return (s);
+	if ((char)c == '\0')
+		return ((char *)s);
 	return (NULL);
 }

@@ -6,9 +6,11 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:49:05 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 13:29:13 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:53:22 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	char_in_set(char const c, char const *set)
 {
@@ -26,24 +28,24 @@ static int	char_in_set(char const c, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		index;
 	char	*str;
-	int		first;
-	int		last;
+	size_t	index;
+	size_t	start;
+	size_t	end;
 
-	first = 0;
-	last = 0;
-	if (char_in_set(s1[0]), set)
-		first = 1;
-	if (char_in_set(s1[ft_strlen(s1)]), set)
-		last = 1;
-	str = (char *)malloc(sizeof(char) * ft_strlen(s1) - first - last);
+	start = 0;
+	while (s1[start] != '\0' && char_in_set(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && char_in_set(s1[end - 1], set))
+		end--;
+	str = (char *)malloc(sizeof(*s1) * (end - start + 1));
 	if (!str)
 		return (NULL);
 	index = 0;
-	while (index < ft_strlen(s1) - first - last)
+	while (start + index < end)
 	{
-		str[index] = s1[index + first];
+		str[index] = s1[start + index];
 		index++;
 	}
 	str[index] = '\0';

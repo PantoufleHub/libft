@@ -6,7 +6,7 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:17:31 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 11:29:40 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/28 16:19:07 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		index;
 	char	*ss;
 
-	index = 0;
-	ss = (char *)malloc(sizeof(char) * len);
+	if (!s)
+		return (0);
+	if (ft_strlen(s) < start)
+		len = 0;
+	if (ft_strlen(s + start) < len)
+		len = ft_strlen(s + start);
+	ss = malloc(sizeof(char) * (len + 1));
 	if (!ss)
-		return (NULL);
-	while (index < len && s[index] != '\0')
-	{
-		ss[index] = s[start + index];
-		index++;
-	}
-	ss[index] = '\0';
+		return (0);
+	ft_strlcpy(ss, s + start, len + 1);
 	return (ss);
 }

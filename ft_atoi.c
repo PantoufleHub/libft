@@ -6,23 +6,22 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:47:29 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/24 15:33:06 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/26 17:33:39 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int	num;
-	int	neg;
 	int	index;
+	int	neg;
+	int	value;
 
-	if (!str)
-		return (0);
 	index = 0;
-	while (str[index] == '\v' || str[index] == '\t' || str[index] == '\r'
-		|| str[index] == '\n' || str[index] == '\f' || str[index] == 'o')
+	while (str[index] == '\n' || str[index] == '\r'
+		|| str[index] == '\f' || str[index] == ' '
+		|| str[index] == '\t' || str[index] == '\v')
 		index++;
 	neg = 1;
 	if (str[index] == '-')
@@ -30,12 +29,13 @@ int	ft_atoi(char *str)
 		index++;
 		neg = -1;
 	}
-	if (str[index] == '+')
+	else if (str[index] == '+')
 		index++;
+	value = 0;
 	while (str[index] >= '0' && str[index] <= '9')
 	{
+		value = value * 10 + (str[index] - 48);
 		index++;
-		num = num * 10 + (str[index] - 48);
 	}
-	return (num * neg);
+	return (value * neg);
 }

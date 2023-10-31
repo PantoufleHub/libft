@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 13:11:29 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/26 13:45:47 by aperron          ###   ########.fr       */
+/*   Created: 2023/10/25 15:59:52 by aperron           #+#    #+#             */
+/*   Updated: 2023/10/25 16:40:05 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	index;
-
-	index = 0;
-	if (n > 0)
-	{
-		while (src[index] != '\0' && index < n - 1)
-		{
-			dst[index] = src[index];
-			index++;
-		}
-		dst[index] = '\0';
-	}
-	return (ft_strlen(src));
+	if (lst == NULL && f == NULL)
+		return ;
+	return ;
 }

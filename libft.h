@@ -6,7 +6,7 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:20:54 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/24 16:13:16 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/31 13:15:29 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ char			**ft_split(char const *s, char c);
 char			*ft_strchr(const char *s, int c);
 
 char			*ft_strdup(const char *s1);
+
+void			ft_striteri(char *s, void (*f) (unsigned int, char *));
 
 char			*ft_strjoin(char const *s1, char const *s2);
 

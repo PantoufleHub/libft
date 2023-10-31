@@ -6,7 +6,7 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:30:04 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 11:49:24 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/28 16:34:18 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		index;
+	int		i1;
+	int		i2;
 	char	*s3;
 
-	s3 = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)));
+	s3 = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!s3)
 		return (NULL);
 	i1 = 0;
@@ -33,6 +34,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s3[i2++] = s2[i1];
 		i1++;
 	}
-	s3[i2] = 0;
+	s3[i2] = '\0';
 	return (s3);
 }

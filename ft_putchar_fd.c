@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 13:11:29 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/26 13:45:47 by aperron          ###   ########.fr       */
+/*   Created: 2023/10/31 14:23:03 by aperron           #+#    #+#             */
+/*   Updated: 2023/10/31 14:34:59 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	index;
-
-	index = 0;
-	if (n > 0)
-	{
-		while (src[index] != '\0' && index < n - 1)
-		{
-			dst[index] = src[index];
-			index++;
-		}
-		dst[index] = '\0';
-	}
-	return (ft_strlen(src));
+	write(fd, &c, 1);
 }

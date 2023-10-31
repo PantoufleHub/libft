@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 13:11:29 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/26 13:45:47 by aperron          ###   ########.fr       */
+/*   Created: 2023/10/25 15:33:00 by aperron           #+#    #+#             */
+/*   Updated: 2023/10/31 12:26:05 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 {
-	size_t	index;
+	char			*str;
+	unsigned int	index;
 
+	str = (char *)malloc(sizeof(*s) * (ft_strlen(s) + 1));
+	if (!str)
+		return (NULL);
 	index = 0;
-	if (n > 0)
+	while (s[index] != '\0')
 	{
-		while (src[index] != '\0' && index < n - 1)
-		{
-			dst[index] = src[index];
-			index++;
-		}
-		dst[index] = '\0';
+		str[index] = f(index, s[index]);
+		index++;
 	}
-	return (ft_strlen(src));
+	str[index] = '\0';
+	return (str);
 }

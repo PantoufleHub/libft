@@ -6,13 +6,13 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:55:01 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/24 15:28:39 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/25 16:28:04 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	l;
 

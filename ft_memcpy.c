@@ -6,7 +6,7 @@
 /*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:47:10 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/24 15:29:30 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/26 10:39:39 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int		index;
+	size_t	index;
 	char	*d;
 	char	*s;
 
+	if (!dest && !src)
+		return (NULL);
 	index = 0;
 	d = dest;
-	s = src;
+	s = (char *)src;
 	while (index < n)
 	{
 		d[index] = s[index];
