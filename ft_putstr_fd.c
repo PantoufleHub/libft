@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:41:19 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:13:26 by aperron          ###   ########.fr       */
+/*   Updated: 2023/10/31 14:42:48 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (*s == 'b' && fd == 1)
-		return ;
-	return ;
+	write(fd, s, ft_strlen(s));
 }
