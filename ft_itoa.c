@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:31:42 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/31 12:18:55 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 08:03:58 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	math_abs(int nbr)
+static int	math_abs(int n)
 {
-	if (nbr < 0)
-		return (-nbr);
-	return (nbr);
+	if (n < 0)
+		return (-n);
+	return (n);
 }
 
 static void	reverse_string(char *str)
@@ -36,26 +36,52 @@ static void	reverse_string(char *str)
 	}
 }
 
+static int	int_length(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n == -2147483648)
+		return (11);
+	if (n < 0)
+	{
+		len++;
+		n *= -1;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		is_neg;
-	size_t	length;
+	int		index;
 
-	is_neg = (n < 0);
-	str = (char *)ft_calloc((10 + is_neg + 1), sizeof(*str));
+	str = (char *)malloc(sizeof(char) * (int_length(n) + 1));
 	if (!str)
 		return (NULL);
+	is_neg = n < 0;
+	index = 0;
 	if (n == 0)
-		str[0] = '0';
-	length = 0;
-	while (n != 0)
+		str[index++] = '0';
+	else
 	{
-		str[length++] = '0' + math_abs(n % 10);
-		n = (n / 10);
+		while (n != 0)
+		{
+			str[index++] = math_abs(n % 10) + '0';
+			n /= 10;
+		}
+		if (is_neg)
+			str[index++] = '-';
 	}
-	if (is_neg)
-		str[length] = '-';
+	str[index] = '\0';
 	reverse_string(str);
 	return (str);
 }
