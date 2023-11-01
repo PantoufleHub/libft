@@ -6,7 +6,7 @@
 /*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 17:17:31 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/31 17:14:04 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 08:07:38 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!ss)
 		return (NULL);
 	index = 0;
-	while (s[start + index] != '\0' && index < len)
+	while (len != 0 && s[start + index] != '\0' && index < len)
 	{
 		ss[index] = s[start + index];
 		index++;
