@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:46:22 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:15:01 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 10:58:09 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 t_list	*ft_lstnew(void *context)
 {
-	if (context == NULL)
+	t_list	*list;
+
+	list = (t_list *)malloc(sizeof(t_list));
+	if (!list)
 		return (NULL);
-	return (NULL);
+	list->next = NULL;
+	list->content = context;
+	return (list);
 }

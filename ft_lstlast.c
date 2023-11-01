@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:50:25 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:40:35 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 13:30:29 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst == NULL)
+	if (!lst)
 		return (NULL);
-	return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

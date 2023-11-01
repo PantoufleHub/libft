@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:55:44 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:39:29 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 14:06:00 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del) (void *))
 {
-	if (lst == NULL && del == NULL)
-		return ;
-	return ;
+	del(lst->content);
+	free(lst);
+	lst = NULL;
 }

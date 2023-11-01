@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:49:23 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:15:57 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 11:18:16 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,17 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	if (lst == NULL)
+	int		count;
+	t_list	current;
+
+	if (!lst)
 		return (0);
-	return (0);
+	count = 1;
+	current = *lst;
+	while (current.next != NULL)
+	{
+		count++;
+		current = *(current.next);
+	}
+	return (count);
 }

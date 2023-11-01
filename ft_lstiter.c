@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:59:52 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:40:05 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 14:36:11 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (lst == NULL && f == NULL)
-		return ;
-	return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

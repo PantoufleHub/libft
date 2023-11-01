@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:57:59 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:34:47 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 14:31:51 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (lst == NULL && del == NULL)
+	t_list	*tmp;
+
+	if (!lst)
 		return ;
-	return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
+	}
 }	

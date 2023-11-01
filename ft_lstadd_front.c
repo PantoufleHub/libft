@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:47:29 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/25 16:15:34 by aperron          ###   ########.fr       */
+/*   Updated: 2023/11/01 11:05:17 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst == NULL && new == NULL)
-		return ;
-	return ;
+	new->next = *lst;
+	*lst = new;
 }
