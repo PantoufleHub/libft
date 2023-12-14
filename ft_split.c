@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperron <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:29:35 by aperron           #+#    #+#             */
-/*   Updated: 2023/10/30 15:07:15 by aperron          ###   ########.fr       */
+/*   Updated: 2023/12/14 11:51:09 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static char	*strdup(const char *str, int start, int end)
 
 	index = 0;
 	word = malloc((end - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
 	while (start + index < end)
 	{
 		word[index] = str[start + index];
@@ -49,6 +51,21 @@ static char	*strdup(const char *str, int start, int end)
 	}
 	word[index] = '\0';
 	return (word);
+}
+
+static char	**free_all(char **split)
+{
+	int	index;
+
+	index = 0;
+	while (split[index] != NULL)
+	{
+		free(split[index]);
+		split[index] = NULL;
+		index++;
+	}
+	free(split);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -61,20 +78,20 @@ char	**ft_split(char const *s, char c)
 	split = malloc((nb_words(s, c) + 1) * sizeof(char *));
 	if (!s || !(split))
 		return (0);
-	index = 0;
+	index = -1;
 	word_index = 0;
 	word_start = -1;
-	while (index <= ft_strlen(s))
+	while (++index <= ft_strlen(s))
 	{
 		if (s[index] != c && word_start < 0)
 			word_start = index;
 		else if ((s[index] == c || index == ft_strlen(s)) && word_start >= 0)
 		{
 			split[word_index] = strdup(s, word_start, index);
+			if (!split[word_index++])
+				return (free_all(split));
 			word_start = -1;
-			word_index++;
 		}
-		index++;
 	}
 	split[word_index] = NULL;
 	return (split);
