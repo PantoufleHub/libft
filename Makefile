@@ -6,7 +6,7 @@
 #    By: aperron <aperron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/11 21:19:28 by ncolomer          #+#    #+#              #
-#    Updated: 2023/12/14 15:31:25 by aperron          ###   ########.fr        #
+#    Updated: 2023/12/14 16:03:57 by aperron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,12 @@ PRINTF_OBJS		= $(PRINTF_SRCS:.c=.o)
 ###
 
 ### GET_NEXT_LINE
+GNL_FOLDER		= get_next_line/
+GNL_SRCS		= $(addprefix $(GNL_FOLDER), get_next_line.c get_next_line_utils.c)
+GNL_OBJS		= $(PRINTF_SRCS:.c=.o)
 ###
 
-ADDONS			= $(PRINTF_SRCS)
+ADDONS			= $(PRINTF_SRCS) $(GNL_SRCS)
 ### BASE_FUNCTIONS
 SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c ft_putchar_fd.c ft_split.c \
 					ft_strlcat.c ft_strncmp.c ft_substr.c ft_atoi.c ft_isalpha.c \
@@ -35,11 +38,6 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c ft_putchar_fd.c ft_split.c \
 					$(ADDONS)
 OBJS			= $(SRCS:.c=.o)
 ###
-
-# BONUS			=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
-# 					ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-# 					ft_lstmap.c ft_lstnew.c ft_lstsize.c
-# BONUS_OBJS		= $(BONUS:.c=.o)
 
 CC				= gcc
 RM				= rm -f

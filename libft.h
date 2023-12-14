@@ -6,7 +6,7 @@
 /*   By: aperron <aperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:20:54 by aperron           #+#    #+#             */
-/*   Updated: 2023/12/14 15:01:52 by aperron          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:13:02 by aperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
+# include <fcntl.h>
+# include <math.h>
 
-# include "ft_printf/ft_printf.h"
+# include "ft_printf/libft_ft_printf.h"
+# include "get_next_line/libft_get_next_line.h"
 
 typedef struct s_list
 {
