@@ -6,7 +6,7 @@
 #    By: aperron <aperron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/11 21:19:28 by ncolomer          #+#    #+#              #
-#    Updated: 2023/12/14 16:50:54 by aperron          ###   ########.fr        #
+#    Updated: 2024/02/03 17:33:07 by aperron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ PRINTF_OBJS		= $(PRINTF_SRCS:.c=.o)
 ### GET_NEXT_LINE
 GNL_FOLDER		= get_next_line/
 GNL_SRCS		= $(addprefix $(GNL_FOLDER), get_next_line.c get_next_line_utils.c)
-GNL_OBJS		= $(PRINTF_SRCS:.c=.o)
+GNL_OBJS		= $(GNL_SRCS:.c=.o)
 ###
 
 ADDONS			= $(PRINTF_SRCS) $(GNL_SRCS)
@@ -60,9 +60,6 @@ fclean:			clean
 				$(RM) $(NAME)
 
 re:				fclean $(NAME)
-
-bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS)
 
 .PHONY:			all clean fclean re bonus
 
